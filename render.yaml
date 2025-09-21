@@ -1,0 +1,24 @@
+services:
+  - type: worker
+    name: solana-token-monitor
+    env: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHANNEL_ID
+        sync: false
+      - key: SOLANA_TRACKER_API_KEY
+        sync: false
+      - key: HELIUS_API_KEY
+        sync: false
+      - key: CHECK_INTERVAL_MINUTES
+        value: "1"
+      - key: MIN_LIQUIDITY_USD
+        value: "1000"
+      - key: MIN_MARKET_CAP_USD
+        value: "10000"
+      - key: MAX_AGE_MINUTES
+        value: "5"
